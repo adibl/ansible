@@ -3,9 +3,8 @@
   hosts: all
   remote_user: adi
   become: yes
-  vars:
-    root: /samba/network
   roles:
     - common
-    - nginx
-
+    - selinux
+    - cockpit
+      # - nginx

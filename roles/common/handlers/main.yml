@@ -1,2 +1,3 @@
 ---
-# handlers file for common
+- name: reboot
+  reboot:

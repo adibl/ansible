@@ -1,0 +1,16 @@
+---
+- name: ensure selinux control packages
+  yum: pkg={{ item }} state=installed
+  loop:
+    - libselinux-python3
+    - libsemanage-python3
+
+- name: ensure selinux status
+  selinux: state={{ selinux_state }} policy={{ selinux_policy }}
+  register: result
+
+- name: change if needed
+  debug: msg="test"
+  notify: reboot
+  changed_when: true
+  when: result.reboot_required

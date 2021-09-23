@@ -3,3 +3,6 @@
 - name: restart nginx
   service: name=nginx state=restarted
  
+- name: test nginx
+  command: nginx -t
+  changed_when: false
