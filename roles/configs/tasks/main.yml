@@ -1,0 +1,25 @@
+---
+- name: ensure vim is installed
+  package: name=vim state=latest
+  become: yes
+
+- name: add vim cach dir
+  file: path="{{ ansible_env.HOME }}/vim/cache" state=directory mode=0733
+
+- name: add vim undo dir
+  file: path="{{ ansible_env.HOME }}/vim/undo" state=directory mode=0733
+
+- name: add config file
+  template:
+    src: vimrc.j2
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+    mode: 0777
+
+- name: copy ssh file
+  template:
+    src: ssh_key
+    dest: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
+    mode: 0700
+
+- name: enable sshd
+  service: name=sshd state=started enabled=yes

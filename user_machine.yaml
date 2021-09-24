@@ -1,0 +1,6 @@
+---
+- name: create nginx static file serve
+  hosts: all
+  remote_user: adi
+  roles:
+    - configs
