@@ -13,7 +13,10 @@
   template:
     src: vimrc.j2
     dest: "{{ ansible_env.HOME }}/.vimrc"
-    mode: 0777
+    mode: 0700
+
+- name: ensure dir .ssh exzist
+  file: path="{{ ansible_env.HOME }}/.ssh" state=directory mode=0700
 
 - name: copy ssh file
   template:
@@ -23,3 +26,12 @@
 
 - name: enable sshd
   service: name=sshd state=started enabled=yes
+  become: yes
+
+- name: enable root without password
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers.d/{{ ansible_env.USER }}
+    mode: 0731
+  become: yes
+
