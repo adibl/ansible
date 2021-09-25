@@ -5,3 +5,6 @@
 - name: ensure server status
   service: name=cockpit.socket state=started enabled=yes
 
+- name: open fierwalld
+  firewalld: service=cockpit permanent=yes state=enabled immediate=yes
+

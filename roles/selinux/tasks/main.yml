@@ -3,7 +3,6 @@
   yum: pkg={{ item }} state=installed
   loop:
     - libselinux-python3
-    - libsemanage-python3
 
 - name: ensure selinux status
   selinux: state={{ selinux_state }} policy={{ selinux_policy }}
