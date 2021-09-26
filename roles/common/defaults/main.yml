@@ -1,2 +1,3 @@
 ---
-# defaults file for common
+selinux_state: disabled
+selinux_policy: targeted

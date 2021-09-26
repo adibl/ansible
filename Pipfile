@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 ansible = "*"
 molecule = {extras = ["lint", "vagrant"], version = "*"}
+python-vagrant = "*"
+molecule-vagrant = "*"
+ansible-lint = "*"
 
 [dev-packages]
 
