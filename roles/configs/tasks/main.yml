@@ -4,16 +4,20 @@
   become: yes
 
 - name: add vim cach dir
-  file: path="{{ ansible_env.HOME }}/vim/cache" state=directory mode=0733
+  file: path="{{ ansible_env.HOME }}/.vim/cache" state=directory mode=0733
 
 - name: add vim undo dir
-  file: path="{{ ansible_env.HOME }}/vim/undo" state=directory mode=0733
+  file: path="{{ ansible_env.HOME }}/.vim/undo" state=directory mode=0733
 
 - name: add config file
   template:
     src: vimrc.j2
     dest: "{{ ansible_env.HOME }}/.vimrc"
     mode: 0700
+
+- name: install git
+  package: name=git state=present
+  become: yes
 
 - name: ensure dir .ssh exzist
   file: path="{{ ansible_env.HOME }}/.ssh" state=directory mode=0700
