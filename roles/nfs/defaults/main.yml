@@ -1,0 +1,6 @@
+---
+nfs_exports: ["/mnt/nfs *(rw,sync,no_root_squash)" ]
+is_nfs_server: true
+
+nfs_mounts: []
+nfs_server: 127.0.0.1

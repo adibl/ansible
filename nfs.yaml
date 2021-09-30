@@ -1,0 +1,25 @@
+---
+- name: common
+  hosts: all
+  become: yes
+  roles:
+    - common
+
+- name: craete nfs server
+  hosts: server
+  become: yes
+  roles:
+    - nfs
+
+- name: create client machine 
+  hosts: client
+  become: yes
+  vars:
+    - nfs_server: "{{ hostvars['server']['ansible_default_ipv4']['address'] }}"
+    - nfs_mount:
+      - src: /mnt/nfs
+      - dest: /mnt/nfs 
+  roles:
+    - configs
+    - nfs
+

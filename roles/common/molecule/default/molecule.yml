@@ -6,12 +6,8 @@ driver:
   provider:
     name: libvirt
 platforms:
-  - name: fedora-cloud
-    box: fedora/32-cloud-base
-    memory: 1536
-    cpus: 1
-  - name: rhel8
-    box: generic/rhel8
+  - name: fedora
+    box:  fedora/34-cloud-base
     memory: 1536
     cpus: 1
 provisioner:

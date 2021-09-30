@@ -1,6 +1,6 @@
 ---
 - name: ensure vim is installed
-  package: name=vim state=latest
+  package: name=vim state=present
   become: yes
 
 - name: add vim cach dir
@@ -36,6 +36,5 @@
   template:
     src: sudoers.j2
     dest: /etc/sudoers.d/{{ ansible_env.USER }}
-    mode: 0731
+    mode: "731"
   become: yes
-
