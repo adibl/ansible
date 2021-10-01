@@ -1,0 +1,2 @@
+sudo virt-install --name server --memory 1024 --vcpus 1 --os-variant fedora34 --disk /home/adi/.local/share/libvirt/images/server.qcow2 --import --bridge br0 --wait 1
+sudo virt-install --name client --memory 1024 --vcpus 1 --os-variant fedora34 --disk /home/adi/.local/share/libvirt/images/client.qcow2 --import --bridge br0 --wait 1

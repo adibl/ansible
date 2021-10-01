@@ -15,10 +15,9 @@
   hosts: client
   become: yes
   vars:
-    - nfs_server: "{{ hostvars['server']['ansible_default_ipv4']['address'] }}"
-    - nfs_mount:
-      - src: /mnt/nfs
-      - dest: /mnt/nfs 
+    - nfs_server: "192.168.1.66"
+    - nfs_mounts:
+        - { src: /mnt/nfs, dest: /mnt/nfs }
   roles:
     - configs
     - nfs

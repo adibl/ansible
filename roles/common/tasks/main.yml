@@ -1,8 +1,6 @@
 ---
 - name: ensure selinux control packages
-  package: name={{ item }} state=installed
-  loop:
-    - libselinux-python3
+  package: name=libselinux-python3 state=installed
 
 - name: ensure selinux status
   selinux: state={{ selinux_state }} policy={{ selinux_policy }}

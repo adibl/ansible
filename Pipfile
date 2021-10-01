@@ -9,6 +9,7 @@ molecule = {extras = ["lint", "vagrant"], version = "*"}
 python-vagrant = "*"
 molecule-vagrant = "*"
 ansible-lint = "*"
+libvirt-python = "*"
 
 [dev-packages]
 

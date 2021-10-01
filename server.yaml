@@ -1,7 +1,0 @@
----
-- name: create nginx static file serve
-  hosts: server
-  become: yes
-  roles:
-    - common
-    - nfs

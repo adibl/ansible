@@ -5,9 +5,8 @@
 
 - name: mount client mounts
   mount: 
-    src: "{{ nfs_gerver }}:{{ nfs_mounts.src }}"
-    path: "{{ nfs_mounts.dest }}"
-    state: present
+    src: "{{ nfs_server }}:{{ item.src }}"
+    path: "{{ item.dest }}"
+    state: mounted
     fstype: nfs
   loop: "{{ nfs_mounts }}"
-  tags: always

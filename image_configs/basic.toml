@@ -1,0 +1,39 @@
+name = "basic"
+description = "basic image with ansible and systemd-networkd"
+version = "0.0.4"
+modules = []
+groups = []
+
+# Install packages. Each individual package needs a block
+[[packages]]
+name = "python3"
+version = "*"
+
+[[packages]]
+name = "openssh"
+version = "*"
+
+[[packages]]
+name = "qemu-guest-agent"
+version = "*"
+
+[customizations]
+hostname = "basic"
+
+# Set ssh key for existing users
+[[customizations.sshkey]]
+user = "root"
+key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEuTUQfyx53iRELm12bIAv2kh7QQWeyZ66B/0at0Ax9xKjW+YkDSIn+NgkoeTYEPNAdAhJSHH0YvQ9V1+/Eh4bX0HBMFA1zCs+V5+NcaDcbwAMfhH/xfr6BAeAw/Ze+b4yTKKOAfOqQG0eDvUtvRd3Lb122OYJ5TZWmiz3UzCVU8yNUzIVjq9/UAR9h4paM6YlKgrKu0zM/nSYb9SVjyA1pzrjqXbVzow/6o/DUlqeBxlMUYKrTOoJ49lROxaLxDdml2iHmpl1ulSsD1gNp0DC4FFGJoX0lE6E/57ISQQ+eA0nNJG1075n12EfXF5oZdMaOMyt9QG/9l7ewy25iNVZJqVMD9crhgH98FUNOpLwAsSKQBmDGFdBprF2e52Rx/3NcFgnTRaUIK3Fkh02eTrVVoe1hy9fBsYRcVCzLanAtp9UgF5PKIOr0zQXPc12SRjo4F3jVB9O+LelauJw5zZRfvG/VQ14Pqv/qxR874yAPh8C8IAFAlyYwA2c+UyEKsE= adi@fedora"
+
+# Set timezone
+[customizations.timezone]
+timezone = "Asia/Jerusalem"
+
+# Set locale
+
+# Configure firewall services
+
+# Configure services
+[customizations.services]
+enabled = ["sshd", "qemu-guest-agent"]
+disabled = []
